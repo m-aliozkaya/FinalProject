@@ -46,7 +46,7 @@ namespace Business.Concrete
 
         public IDataResult<Product> GetById(int productId)
         {
-            return new SuccessDataResult<Product>(_productDal.Get(p => p.CategoryId == productId));
+            return new SuccessDataResult<Product>(_productDal.Get(p => p.ProductId == productId));
         }
 
         public IDataResult<List<Product>> GetByUnitPrice(decimal min, decimal max)
@@ -57,7 +57,7 @@ namespace Business.Concrete
         public IDataResult<List<ProductDetailDto>> GetProductDetails()
         {
 
-            if (DateTime.Now.Hour == 17)
+            if (DateTime.Now.Hour == 23)
             {
                 return new ErrorDataResult<List<ProductDetailDto>>(Messages.MaintanceTime);
             }
